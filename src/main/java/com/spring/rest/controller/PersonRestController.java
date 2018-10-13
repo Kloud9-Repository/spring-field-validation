@@ -36,7 +36,12 @@ public class PersonRestController {
 
 	@RequestMapping(value = "/getPerson/{id}", method = RequestMethod.GET, produces = "application/json")
 	public Person getPerson(@PathVariable("id") int id) {
-		return service.getPerson(id);
+		Person person = service.getPerson(id);
+		if (person != null) {
+			return person;
+		} else {
+			throw new IllegalAccessError("user not found");
+		}
 	}
 
 	@RequestMapping(value = "/getPersons", method = RequestMethod.GET, produces = "application/json")
