@@ -40,7 +40,7 @@ public class PersonRestController {
 		if (person != null) {
 			return person;
 		} else {
-			throw new IllegalAccessError("user not found");
+			throw new IllegalAccessError("user not found with id : "+id);
 		}
 	}
 
